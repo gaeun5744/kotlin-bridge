@@ -1,20 +1,21 @@
 package bridge
 
-class BridgeController {
+class BridgeController(
+
+    private val inputView: InputView = InputView(),
+    private val outputView: OutputView = OutputView(),
+
+    ) {
 
     fun run() {
-        val inputView = InputView()
-        val outputView = OutputView()
 
         val bridgeSize = inputView.readBridgeSize()
-
-        val bridgeGame = BridgeGame()
         val bridge = BridgeMaker(BridgeRandomNumberGenerator()).makeBridge(bridgeSize)
+        val bridgeGame = BridgeGame(bridge)
 
-        bridgeGame.setBridge(bridge)
         println(bridge)
 
-        var isEnd = false
+        var isEnd: Boolean
 
         do {
             do {
