@@ -39,15 +39,19 @@ class InputView {
     /**
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
-    fun readGameCommand(): String {
+    fun readGameCommand(): Boolean {
         println("게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)")
         return try {
             val input = Console.readLine()
             Validation.checkEnd(input)
-            input.also { println() }
+            getIsRetry(input).also { println() }
         } catch (e: java.lang.IllegalArgumentException) {
             println(e.message).also { println() }
             readGameCommand()
         }
+    }
+
+    private fun getIsRetry(input: String): Boolean {
+        return input == "R"
     }
 }
