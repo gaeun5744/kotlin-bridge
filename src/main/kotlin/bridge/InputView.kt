@@ -30,7 +30,7 @@ class InputView {
             val input = Console.readLine()
             Validation.checkMove(input)
             input.also { println() }
-        } catch (e:java.lang.IllegalArgumentException) {
+        } catch (e: java.lang.IllegalArgumentException) {
             println(e.message).also { println() }
             readMoving()
         }
@@ -41,6 +41,13 @@ class InputView {
      */
     fun readGameCommand(): String {
         println("게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)")
-        return Console.readLine()
+        return try {
+            val input = Console.readLine()
+            Validation.checkEnd(input)
+            input.also { println() }
+        } catch (e: java.lang.IllegalArgumentException) {
+            println(e.message).also { println() }
+            readGameCommand()
+        }
     }
 }
