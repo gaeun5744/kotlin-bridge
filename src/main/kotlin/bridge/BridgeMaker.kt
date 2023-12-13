@@ -14,13 +14,18 @@ class BridgeMaker(private val bridgeNumberGenerator: BridgeNumberGenerator) {
 
         repeat(size) {
             val randomNum = bridgeNumberGenerator.generate()
-            if (randomNum == 0) {
+            if (randomNum == DOWN_RANDOM_NUM) {
                 bridge.add(Constants.DOWN)
-            } else if (randomNum == 1) {
+            } else if (randomNum == UP_RANDOM_NUM) {
                 bridge.add(Constants.UP)
             }
         }
 
         return bridge
+    }
+
+    companion object {
+        private const val DOWN_RANDOM_NUM = 0
+        private const val UP_RANDOM_NUM = 1
     }
 }
