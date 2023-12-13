@@ -10,7 +10,12 @@ class OutputView {
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     fun printMap(bridge: List<String>, result: List<String>) {
+        printUpperMap(result, bridge)
+        printDownMap(result, bridge)
+    }
 
+
+    private fun printUpperMap(result: List<String>, bridge: List<String>) {
         var upResult = MAP_START
         repeat(result.size) { idx ->
             upResult += if (bridge[idx] == Constants.UP && result[idx] == Constants.SUCCESS) {
@@ -23,7 +28,9 @@ class OutputView {
         }
 
         println("${upResult.dropLast(1)}" + MAP_END)
+    }
 
+    private fun printDownMap(result: List<String>, bridge: List<String>) {
         var downResult = MAP_START
         repeat(result.size) { idx ->
             downResult += if (bridge[idx] == Constants.DOWN && result[idx] == Constants.SUCCESS) {
