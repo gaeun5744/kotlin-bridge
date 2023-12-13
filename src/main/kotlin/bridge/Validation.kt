@@ -14,6 +14,18 @@ object Validation {
         checkNumRange(input)
     }
 
+    fun checkMove(input: String) {
+        require(input == "D" || input == "U") {
+            INVALID_MOVE_ERROR_MESSAGE
+        }
+    }
+
+    fun checkEnd(input: String) {
+        require(input == "Q" || input == "R") {
+            INVALID_ENDING_ERROR_MESSAGE
+        }
+    }
+
 
     private fun checkIsDigit(input: String) {
         try {
