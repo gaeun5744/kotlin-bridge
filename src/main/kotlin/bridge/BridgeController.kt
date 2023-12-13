@@ -15,8 +15,6 @@ class BridgeController(
 
         val bridgeSize = settingBridgeGame()
 
-        println(bridge)
-
         do {
             doBridgeGame(bridgeSize)
             observeIsGameEnd(bridgeSize)
@@ -27,7 +25,6 @@ class BridgeController(
         } else {
             showGameResult(false)
         }
-
     }
 
     private fun settingBridgeGame(): Int {
