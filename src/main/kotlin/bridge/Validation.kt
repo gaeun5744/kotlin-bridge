@@ -15,13 +15,13 @@ object Validation {
     }
 
     fun checkMove(input: String) {
-        require(input == "D" || input == "U") {
+        require(input == Constants.DOWN || input == Constants.UP) {
             INVALID_MOVE_ERROR_MESSAGE
         }
     }
 
     fun checkEnd(input: String) {
-        require(input == "Q" || input == "R") {
+        require(input == Constants.END || input == Constants.RETRY) {
             INVALID_ENDING_ERROR_MESSAGE
         }
     }
