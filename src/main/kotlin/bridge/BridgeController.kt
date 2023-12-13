@@ -43,11 +43,11 @@ class BridgeController(
         if (bridgeGame.getResults().size == bridgeSize && bridgeGame.getResults().last() != Constants.FAIL) {
             isEnd = true
         } else {
-            selectRetry()
+            selectRetryEnd()
         }
     }
 
-    private fun selectRetry() {
+    private fun selectRetryEnd() {
         if (inputView.readGameCommand()) {
             bridgeGame.retry()
         } else {
