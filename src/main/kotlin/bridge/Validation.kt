@@ -3,7 +3,7 @@ package bridge
 object Validation {
 
     private const val NUM_ERROR_MESSAGE = "[ERROR] 숫자만 입력 가능합니다."
-    private const val NUM_RANGE_ERROR_MESSAGE = "[ERROR] 3에서 20 숫자만 입력 가능합니다."
+    private const val NUM_RANGE_ERROR_MESSAGE = "[ERROR] 다리 길이는 3부터 20 사이의 숫자여야 한다."
     private const val INVALID_MOVE_ERROR_MESSAGE = "[ERROR] U 혹은 D만 입력 가능합니다."
     private const val INVALID_ENDING_ERROR_MESSAGE = "[ERROR] Q 혹은 R만 입력 가능합니다."
     private const val MINIMUM_SIZE_NUM = 3
