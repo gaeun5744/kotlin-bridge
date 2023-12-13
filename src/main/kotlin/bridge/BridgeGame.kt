@@ -20,9 +20,9 @@ class BridgeGame(private val bridge: List<String>) {
     fun move(userInput: String) {
 
         if (bridge[results.size] == userInput) {
-            results.add("O")
+            results.add(Constants.SUCCESS)
         } else {
-            results.add("X")
+            results.add(Constants.FAIL)
         }
     }
 

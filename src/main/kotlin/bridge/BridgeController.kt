@@ -20,7 +20,7 @@ class BridgeController(
             observeIsGameEnd(bridgeSize)
         } while (!isEnd)
 
-        if (bridgeGame.getResults().last() == "O") {
+        if (bridgeGame.getResults().last() == Constants.SUCCESS) {
             showGameResult(true)
         } else {
             showGameResult(false)
@@ -38,11 +38,11 @@ class BridgeController(
         do {
             bridgeGame.move(inputView.readMoving())
             outputView.printMap(bridge, bridgeGame.getResults())
-        } while (bridgeGame.getResults().last() != "X" && bridgeGame.getResults().size != bridgeSize)
+        } while (bridgeGame.getResults().last() != Constants.FAIL && bridgeGame.getResults().size != bridgeSize)
     }
 
     private fun observeIsGameEnd(bridgeSize: Int) {
-        if (bridgeGame.getResults().size == bridgeSize && bridgeGame.getResults().last() != "X") {
+        if (bridgeGame.getResults().size == bridgeSize && bridgeGame.getResults().last() != Constants.FAIL) {
             isEnd = true
         } else {
             if (inputView.readGameCommand()) {
@@ -52,7 +52,8 @@ class BridgeController(
             }
         }
     }
-    private fun showGameResult(isSuccess:Boolean) {
+
+    private fun showGameResult(isSuccess: Boolean) {
         println("최종 게임 결과")
         outputView.printMap(bridge, bridgeGame.getResults())
         outputView.printResult(isSuccess, bridgeGame.tryNum)

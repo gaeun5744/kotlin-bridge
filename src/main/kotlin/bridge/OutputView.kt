@@ -13,9 +13,9 @@ class OutputView {
 
         var upResult = "["
         repeat(result.size) { idx ->
-            upResult += if (bridge[idx] == "U" && result[idx] == "O") {
+            upResult += if (bridge[idx] == Constants.UP && result[idx] == Constants.SUCCESS) {
                 " O |"
-            } else if (bridge[idx] == "D" && result[idx] == "X") { // U X
+            } else if (bridge[idx] == Constants.DOWN && result[idx] == Constants.FAIL) { // U X
                 " X |"
             } else {
                 "   |"
@@ -26,9 +26,9 @@ class OutputView {
 
         var downResult = "["
         repeat(result.size) { idx ->
-            downResult += if (bridge[idx] == "D" && result[idx] == "O") {
+            downResult += if (bridge[idx] == Constants.DOWN && result[idx] == Constants.SUCCESS) {
                 " O |"
-            } else if (bridge[idx] == "U" && result[idx] == "X") {
+            } else if (bridge[idx] == Constants.UP && result[idx] == Constants.FAIL) {
                 " X |"
             } else {
                 "   |"

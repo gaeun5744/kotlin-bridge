@@ -15,9 +15,9 @@ class BridgeMaker(private val bridgeNumberGenerator: BridgeNumberGenerator) {
         repeat(size) {
             val randomNum = bridgeNumberGenerator.generate()
             if (randomNum == 0) {
-                bridge.add("D")
+                bridge.add(Constants.DOWN)
             } else if (randomNum == 1) {
-                bridge.add("U")
+                bridge.add(Constants.UP)
             }
         }
 

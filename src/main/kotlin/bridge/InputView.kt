@@ -52,6 +52,6 @@ class InputView {
     }
 
     private fun getIsRetry(input: String): Boolean {
-        return input == "R"
+        return input == Constants.RETRY
     }
 }
