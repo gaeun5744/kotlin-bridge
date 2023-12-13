@@ -20,11 +20,9 @@ class BridgeController(
             observeIsGameEnd(bridgeSize)
         } while (!isEnd)
 
-        if (bridgeGame.getResults().last() == Constants.SUCCESS) {
-            showGameResult(true)
-        } else {
-            showGameResult(false)
-        }
+
+        showGameResult(bridgeGame.getResults().last() == Constants.SUCCESS)
+
     }
 
     private fun settingBridgeGame(): Int {
@@ -45,11 +43,15 @@ class BridgeController(
         if (bridgeGame.getResults().size == bridgeSize && bridgeGame.getResults().last() != Constants.FAIL) {
             isEnd = true
         } else {
-            if (inputView.readGameCommand()) {
-                bridgeGame.retry()
-            } else {
-                isEnd = true
-            }
+            selectRetry()
+        }
+    }
+
+    private fun selectRetry() {
+        if (inputView.readGameCommand()) {
+            bridgeGame.retry()
+        } else {
+            isEnd = true
         }
     }
 
